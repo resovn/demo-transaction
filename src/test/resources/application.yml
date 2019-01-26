@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: demo-flyway
+  profiles:
+    active: base,product
+
+
+---
+spring:
+  profiles: base
+  datasource:
+    username: root
+    password: 123456
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        format_sql: true
+        id:
+          new_generator_mappings: true
+
+flyway:
+  locations: db/migration/mariadb
+  baseline-on-migrate: true
+
+
+---
+spring:
+  profiles: product
+  datasource:
+    url: jdbc:mariadb://maven.rd.mt:3308/demo
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
