@@ -1,6 +1,6 @@
 spring:
   application:
-    name: demo-flyway
+    name: demo-transaction
   profiles:
     active: base,product
 
@@ -28,7 +28,7 @@ flyway:
 spring:
   profiles: product
   datasource:
-    url: jdbc:mariadb://maven.rd.mt:3308/demo
+    url: jdbc:mariadb://maven.rd.mt:3308/transaction_demo
   jpa:
     hibernate:
       ddl-auto: validate
